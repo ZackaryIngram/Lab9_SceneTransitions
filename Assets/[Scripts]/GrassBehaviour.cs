@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GrassBehaviour : MonoBehaviour
 {
@@ -20,8 +21,7 @@ public class GrassBehaviour : MonoBehaviour
     {
         if (collision.gameObject.tag == "Lemon")
         {
-            CheckForEncounters();
-            Debug.Log("Touching Grass");
+            SceneManager.LoadScene("BattleScene");
         }
     }
 
@@ -29,8 +29,7 @@ public class GrassBehaviour : MonoBehaviour
     {
         if (collision.gameObject.tag == "Lemon")
         {
-            CheckForEncounters();
-            //Debug.Log("Touching Grass");
+            SceneManager.LoadScene("BattleScene");
         }
     }
     private void CheckForEncounters()

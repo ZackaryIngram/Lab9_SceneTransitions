@@ -2,6 +2,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public enum BattleState { Start, PlayerAction, PlayerMove, EnemyMove, Busy, BattleOver, RunningTurn}
 public class BattleSystem : MonoBehaviour
@@ -17,6 +19,7 @@ public class BattleSystem : MonoBehaviour
     // Start is called before the first frame update
     public void StartBattle()
     {
+        SceneManager.LoadScene("BattleScene");
         StartCoroutine(SetupBattle());
     }
 

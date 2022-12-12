@@ -3,9 +3,9 @@ using UnityEditor;
 
 public class MyUnityEditorScript : EditorWindow
 {
-    Color colour;
+    Color color;
 
-    //Nmae inside the window drop down menu
+    //Nme inside the window drop down menu
     [MenuItem("Window/Colour_Changer")]
     public static void ShowWindow()
     {
@@ -17,7 +17,7 @@ public class MyUnityEditorScript : EditorWindow
         GUILayout.Label("Colour selected objects", EditorStyles.boldLabel);
 
         //Setup color variable to = a color field color
-         colour = EditorGUILayout.ColorField("Colour", colour);
+         color = EditorGUILayout.ColorField("Colour", color);
 
         if(GUILayout.Button("Change Colour"))
         {
@@ -28,12 +28,14 @@ public class MyUnityEditorScript : EditorWindow
 
     void ChangeColour()
     {
+        //For each game object selected change the colour
         foreach (GameObject obj in Selection.gameObjects)
         {
+            //object must have a renderer component
             Renderer renderer = obj.GetComponent<Renderer>();
             if (renderer != null)
             {
-                renderer.sharedMaterial.color = colour;
+                renderer.sharedMaterial.color = color;
             }
         }
     }
